@@ -1,12 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="495" height="200" viewBox="0 0 495 200" role="img" aria-label="Top programming languages">
-  <rect width="495" height="200" rx="10" fill="#fff" stroke="#e1e4e8"/>
-  <text x="24" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="600" fill="#24292f">Top Languages</text>
-  <g transform="translate(24,58)"><rect width="447" height="14" rx="7" fill="#eaecef"/><rect width="224" height="14" rx="7" fill="#3572A5"/><rect x="224" width="89" height="14" fill="#f1e05a"/><rect x="313" width="45" height="14" fill="#3178c6"/><rect x="358" width="45" height="14" fill="#89e051"/><rect x="403" width="44" height="14" rx="7" fill="#555555"/></g>
-  <g font-family="Arial, sans-serif" font-size="13" fill="#586069">
-    <circle cx="32" cy="105" r="5" fill="#3572A5"/><text x="45" y="110">Python</text><text x="105" y="110">50.0%</text>
-    <circle cx="170" cy="105" r="5" fill="#f1e05a"/><text x="183" y="110">JavaScript</text><text x="260" y="110">20.0%</text>
-    <circle cx="330" cy="105" r="5" fill="#3178c6"/><text x="343" y="110">TypeScript</text><text x="425" y="110">10.0%</text>
-    <circle cx="32" cy="145" r="5" fill="#89e051"/><text x="45" y="150">C</text><text x="105" y="150">10.0%</text>
-    <circle cx="170" cy="145" r="5" fill="#555555"/><text x="183" y="150">Shell</text><text x="260" y="150">10.0%</text>
-  </g>
+<rect width="495" height="200" rx="12" fill="#fff" stroke="#d9e2f2" stroke-width="2"/><text x="25" y="38" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#456fc3">Most Used Languages</text><text x="25" y="59" font-family="Arial,sans-serif" font-size="11" fill="#8b98aa">Based on public repositories</text>
+<g transform="translate(25,75)"><rect width="445" height="16" rx="8" fill="#edf1f7"/><rect width="222.5" height="16" rx="8" fill="#3572A5"/><rect x="222.5" width="89" height="16" fill="#f1e05a"/><rect x="311.5" width="44.5" height="16" fill="#3178c6"/><rect x="356" width="44.5" height="16" fill="#89e051"/><rect x="400.5" width="44.5" height="16" rx="8" fill="#555"/></g>
+<g font-family="Arial,sans-serif" font-size="13" fill="#4b596d"><circle cx="33" cy="119" r="5" fill="#3572A5"/><text x="46" y="124">Python</text><text x="111" y="124" fill="#8b98aa">50%</text><circle cx="177" cy="119" r="5" fill="#f1e05a"/><text x="190" y="124">JavaScript</text><text x="270" y="124" fill="#8b98aa">20%</text><circle cx="335" cy="119" r="5" fill="#3178c6"/><text x="348" y="124">TypeScript</text><text x="432" y="124" fill="#8b98aa">10%</text><circle cx="33" cy="157" r="5" fill="#89e051"/><text x="46" y="162">C</text><text x="111" y="162" fill="#8b98aa">10%</text><circle cx="177" cy="157" r="5" fill="#555"/><text x="190" y="162">Shell</text><text x="270" y="162" fill="#8b98aa">10%</text></g><text x="25" y="186" font-family="Arial,sans-serif" font-size="11" fill="#8b98aa">Languages detected across public projects</text>
 </svg>
