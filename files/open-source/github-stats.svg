@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="495" height="200" viewBox="0 0 495 200" role="img" aria-label="Yaoliang Bian's GitHub stats">
+  <rect width="495" height="200" rx="10" fill="#fff" stroke="#e1e4e8"/>
+  <text x="24" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="600" fill="#24292f">Yaoliang Bian's GitHub Stats</text>
+  <g font-family="Arial, sans-serif" fill="#586069">
+    <text x="44" y="78" font-size="12">PUBLIC REPOSITORIES</text><text x="44" y="106" font-size="25" font-weight="600" fill="#24292f">13</text>
+    <text x="180" y="78" font-size="12">FOLLOWERS</text><text x="180" y="106" font-size="25" font-weight="600" fill="#24292f">20</text>
+    <text x="300" y="78" font-size="12">FOLLOWING</text><text x="300" y="106" font-size="25" font-weight="600" fill="#24292f">101</text>
+    <text x="44" y="143" font-size="12">PUBLIC GISTS</text><text x="44" y="171" font-size="25" font-weight="600" fill="#24292f">0</text>
+  </g>
+  <path d="M24 53H471" stroke="#eaecef"/>
+</svg>
