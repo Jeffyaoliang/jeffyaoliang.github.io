@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>I Wanted an Autonomous Research Agent. I Became Its Message Bus. — Yaoliang Bian</title>
+<meta name="author" content="Yaoliang Bian">
+<meta name="description" content="Notes from using Codex and ChatGPT for research: delegating judgment, reducing human relay work, and knowing whether the original question is being answered.">
+<link rel="canonical" href="https://jeffyaoliang.github.io/blog/autonomous-research-agent.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="I Wanted an Autonomous Research Agent. I Became Its Message Bus.">
+<meta property="og:description" content="Notes from using Codex and ChatGPT for research: delegating judgment, reducing human relay work, and knowing whether the original question is being answered.">
+<meta property="og:url" content="https://jeffyaoliang.github.io/blog/autonomous-research-agent.html">
+<meta property="og:site_name" content="Yaoliang Bian">
+<meta property="article:published_time" content="2026-10-11T15:30:00+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="I Wanted an Autonomous Research Agent. I Became Its Message Bus.">
+<meta name="twitter:description" content="Notes from using Codex and ChatGPT for research: delegating judgment, reducing human relay work, and knowing whether the original question is being answered.">
+<style>
+:root{color-scheme:light;--ink:#182c35;--muted:#5b6e73;--accent:#087e83;--paper:#fffdf8;--line:#dce4e1}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.8 Georgia,"Noto Serif CJK SC","Songti SC",serif}main{max-width:850px;margin:auto;padding:70px 35px 90px}.kicker,nav,.meta,.label,footer{font-family:system-ui,sans-serif}.kicker{color:var(--accent);font-size:12px;letter-spacing:.2em;text-transform:uppercase}h1{font-size:clamp(32px,6vw,54px);line-height:1.13;letter-spacing:-.035em;margin:22px 0}h2{font-size:28px;line-height:1.35;margin:50px 0 18px}h3{font-size:21px;margin:30px 0 12px}p{margin:0 0 20px}.subtitle{font-size:23px;color:var(--muted)}.meta{font-size:13px;color:var(--muted)}nav{display:flex;gap:18px;flex-wrap:wrap;margin:30px 0 40px;font-size:14px}a{color:var(--accent);text-underline-offset:4px}blockquote{margin:30px 0;padding:15px 25px;border-left:3px solid var(--accent);background:#edf4f0;font-size:22px}blockquote p:last-child{margin:0}.note{padding:20px 24px;background:#f0f3ee;font-size:15px}.thesis{font-size:23px;line-height:1.65;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:25px 0;margin:35px 0}table{border-collapse:collapse;width:100%;font-size:15px;margin:25px 0}th,td{border-bottom:1px solid var(--line);padding:12px 10px;text-align:left;vertical-align:top}th{font-family:system-ui,sans-serif;color:var(--accent)}.tablewrap{overflow-x:auto}.formula{font-family:system-ui,sans-serif;background:#f0f3ee;padding:18px 22px;font-size:17px;overflow-wrap:anywhere}sup a{text-decoration:none;font-family:system-ui,sans-serif}hr{border:0;border-top:1px solid var(--line);margin:70px 0}ol,ul{padding-left:26px}li{margin-bottom:12px}footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:25px;margin-top:55px}section[lang=zh-CN]{font-family:"Noto Serif CJK SC","Songti SC",Georgia,serif}section[lang=zh-CN] p{line-height:1.95}@media(max-width:600px){main{padding:35px 22px}body{font-size:17px}h2{font-size:25px}blockquote{font-size:20px;padding:12px 18px}table{min-width:570px}}@media print{main{max-width:none;padding:0}body{font-size:11pt;background:white}h1{font-size:28pt}h2{font-size:18pt;break-after:avoid}nav{display:none}blockquote,.note,.formula{break-inside:avoid}a{color:inherit}section[lang=zh-CN]{break-before:page}}
+</style></head><body><main>
+<header><div class="kicker">Research notes · 01</div><h1>I Wanted an Autonomous Research Agent. I Became Its Message Bus.</h1><p class="subtitle">我想让 AI 自主做科研，最后却成了它的 Prompt 中转站</p><p class="meta">卞耀亮 / Yaoliang Bian (Jeff) · 2026 年 10 月 11 日 · 个人博客</p><nav><a href="/">← Home</a><a href="#english">English</a><a href="#chinese">中文</a><a href="#connect">Connect / 交流</a></nav></header>
+<section id="english" lang="en">
+<p>I use Codex on a server to work on research projects. I also bring screenshots and progress updates to ChatGPT, ask for advice, and copy a new prompt back to the server.</p><p>One assistant provides guidance. Another handles implementation. I connect them.</p>
+<p>At one point, I asked whether this counted as multi-agent collaboration. Later, I asked why I should not let the server-side agent make its own decisions. Eventually, I put the wish plainly:</p><blockquote><p>“I actually kind of hope it can run completely autonomously.”</p></blockquote>
+<p>This essay is about that wish and why it involves more than granting broader permissions. It is not an experimental report demonstrating that one research-agent workflow is better than another.</p>
+<h2>The arrangement helped</h2><p>I did not consult a second assistant only to supervise the first. Sometimes I did not know what to ask next. As I explained in our conversation, part of the reason I forwarded updates was that I did not know how to write a better prompt to continue.</p><p>Discussing the current state helped turn a vague concern into an actionable request. Should we reconstruct the project's history or continue experimenting? How much effort should go into the current blocker? What should the next step actually test?</p><p>Some judgment happened during the relay. Removing me would require the system to handle both message transfer and questions I had not yet expressed clearly.</p>
+<h2>I was still inside the workflow</h2><p>Both assistants helped, but I still decided when to capture an update, which information to forward, and whether to pass the advice on unchanged.</p><p>The server-side agent had access to the working environment. The other assistant mainly saw what I sent it. I started wondering when this division provided another perspective and when it merely reinterpreted the same information.</p><p>I asked whether I needed to forward updates every time. If every stretch of progress required me to connect the two systems, increasingly automated code execution still tied my attention to the process. I wanted to reduce the ongoing effort of watching, understanding, relaying, and issuing instructions.</p>
+<h2>I wanted to let go, and worried about drift</h2><p>In the same experience, I asked: “What exactly are we doing, and why does it feel as though we are drifting further off course?”</p><p>That was a feeling. This essay does not audit the complete code, experiments, and decision history, so I cannot present it as a verified instance of agent goal drift.</p><p>It nevertheless raised a question worth preserving: after an agent has done a great deal of work, how do I know it is still answering the question I care about?</p><p>Consider a hypothetical example. The question is whether failure detection improves a robot's closed-loop recovery. The agent trains a more accurate detector. That is useful progress. But without comparing recovery success, false alarms, and retry costs, the original question remains unanswered. This is not a description of my server experiments. It illustrates the judgment between finishing a local task and answering a research question.</p><p>Changing methods is not necessarily drift. If the agent discovers that the original approach fails and tries an alternative, it may be doing exactly what I want. I need to understand why it changed, what it is now testing, and how to inspect that change.</p>
+<h2>What I mean by autonomous</h2><p>I do not want concern about mistakes to produce a workflow that asks me about every step. That would recreate the original problem.</p><p>To make the wish actionable, I want to try a division of responsibility: within a clear question and budget, let the agent diagnose the environment, revise implementation, choose small experiments, and continue from their results. When it believes the main research question or evaluation criterion should change, it should present a concrete reason and proposal.</p><p>I want it to be able to tell me that the original question may be mistaken, with supporting evidence and the cheapest next test.</p><p>Lvmin Zhang's <a href="https://lllyasviel.github.io/lvmin_zhang/perspective/computation-shaped-by-intention/">Computation Shaped by Intention</a> drew my attention to how intention enters a system and to the boundary between following and exploring. His exploring specifically means offering options awaiting acceptance. What I want to try also includes direct experimentation within authority granted beforehand. These meanings should remain distinct.</p><p>An interface worth trying would put the current question, available evidence, and reason for the next experiment together. I should not have to reconstruct the direction of research from a long stream of operational updates.</p>
+<h2>What a second agent could do</h2><p>I still think another perspective may help. But I would rather test a second assistant that examines important conclusions than one that continuously supplies the next instruction.</p><p>Does this result support the claim? Is there a competing explanation? Has an intermediate metric become the final objective?</p><p>Two agents may agree because they read the same incomplete summary. My working view is that a second agent's value depends on what it actually checks. Its existence alone establishes little.</p>
+<h2>What I want to try next</h2><p>My constraints are concrete: four 80 GB GPUs and approximately 32 hours per allocation. I want to start with a small, resumable task with a clear stopping condition and compare two workflows.</p><p>In the first, I continue relaying progress between assistants. In the second, I state the question, budget, and acceptance criteria upfront, let the server-side agent proceed, and receive inspectable updates at important decisions.</p><p>I want to record my actual time and whether the original question receives an answer, alongside completed work. A negative result can be an answer.</p><p>This comparison is not complete. If independent operation does not reduce my burden, or simply defers it to final review, I need to acknowledge that. If my intervention interrupts useful exploration, that deserves recording too.</p><div class="thesis">I want to delegate some research judgment as well as coding. What I need to learn is how to tell whether the question is being answered after I delegate it.</div><p>I do not yet have a mature answer. The question comes from my experience, and it will continue to shape how I conduct research and use agents.</p>
+<h2>About me</h2><p>I am Yaoliang Bian (Jeff), a doctoral student in the joint Westlake University–Shenzhen Hetao College program. My interests include embodied intelligence, multimodal models, and research agents.</p><p>If you use agents to run experiments, I would like to hear concrete experiences: which judgments do you delegate, when do you intervene, and when has staying out of the way worked better?</p><p><a href="https://jeffyaoliang.github.io">Personal website</a> · <a href="mailto:bianyaoliang@westlake.edu.cn">Email</a></p></section>
+<hr>
+<section id="chinese" lang="zh-CN">
+<p>我在服务器上用 Codex 推进科研，又把它的截图和进展带给 ChatGPT，让 ChatGPT 帮我判断下一步。然后，我把新的 Prompt 复制回服务器。</p>
+<p>一个负责 guidance，一个负责 implementation，而我负责把两边连起来。</p>
+<p>有一天，我问：“我们这样算不算多 agent 协作，只是一个负责 guidance 一个负责 implement？”后来又问：“那我为什么不让服务器上的 codex 自己判断呢？”</p>
+<p>最后，我说出了最直接的愿望：</p>
+<blockquote><p>“我其实有点希望他完全自主运行。”</p></blockquote>
+<p>这篇文章记录的是这个愿望，以及它为什么比“把权限开大一点”更难。它不是自主科研系统的实验报告，也没有证明某种协作方式更优。</p>
+<h2>这套安排确实帮了我</h2>
+<p>我最初找第二个助手，不只是为了监督第一个。</p>
+<p>有时我不知道下一步应该怎么问。我在对话里解释过：“其实我之前转给你也有因为我不知道继续下去怎么写出更好的 prompt。”</p>
+<p>把当前状态拿出来讨论，能帮我把一个模糊的困惑变成具体要求：先查清历史状态，还是继续跑实验？眼前的阻塞值得解决多久？下一步到底要验证什么？</p>
+<p>这说明所谓人工中转也不全是复制粘贴。有些判断就在这个过程中发生。如果直接把我删掉，系统需要接住的不只是消息传递，还有这些尚未表达清楚的问题。</p>
+<h2>但我没有真正退出工作流</h2>
+<p>两个助手都在帮我，我却仍然要决定什么时候截取进展、传递哪些信息，以及是否把建议原样交给服务器上的 Agent。</p>
+<p>服务器上的 Agent 能访问工作环境，另一个助手收到的主要是我转来的内容。我开始怀疑：这样的分工在什么时候提供了第二种视角，又在什么时候只是把同一份信息重新解释一遍？</p>
+<p>我也问过：“你觉得我应该每次都传递给你吗？”</p>
+<p>如果每推进一段都要由我连接两边，那么即使代码执行越来越自动化，我的注意力仍然被绑在流程上。我真正想减少的是这种持续盯着、理解、转述、再发指令的负担。</p>
+<h2>我想放手，又担心走偏</h2>
+<p>同一段使用经历里，我还问过：</p>
+<blockquote><p>“我们到底在做什么为什么感觉越做越偏。”</p></blockquote>
+<p>这里需要讲清楚：这是我当时的感受。我没有在这篇文章里审计完整的代码、实验和决策记录，因此不能把它写成“Agent 已被证实发生目标漂移”。</p>
+<p>但这种感觉很值得保留。它让我想问：怎样知道一个 Agent 做了很多工作以后，仍然在回答我真正关心的问题？</p>
+<p>举一个假设例子。我的问题是“失败检测能否改善机器人的闭环恢复”。Agent 训练出了准确率更高的检测器，这是有用的进展。但如果我们始终没有比较恢复成功率、误报和重试成本，最初的问题仍没有答案。这个例子不是对我服务器实验的描述；它只是帮助我说明，局部任务完成与研究问题被回答之间，还隔着一步判断。</p>
+<p>反过来，换方法不一定是走偏。一个 Agent 如果发现原方案不成立，主动尝试替代方案，可能正是我希望它具备的能力。真正需要辨别的是：它为什么改，修改后仍在检验什么，以及我能否看懂这次变化。</p>
+<h2>“完全自主”对我意味着什么</h2>
+<p>我不想因为担心出错，就把自主运行重新设计成每一步都要问我的流程。那会回到最初的问题。</p>
+<p>为了把这个愿望变得可操作，我目前想尝试这样的分工：在问题和预算已经明确的范围内，让 Agent 自己排查环境、修改实现、选择小实验，并根据结果继续；当它认为应该更换主要研究问题或评价标准时，给我一份具体的理由和方案。</p>
+<p>这不是要求它永远沿着最初计划走。相反，我希望它能提出“这个问题可能问错了”，但也说明依据是什么、接下来最便宜的验证是什么。</p>
+<p>Lvmin Zhang 的 <a href="https://lllyasviel.github.io/lvmin_zhang/perspective/computation-shaped-by-intention/">Computation Shaped by Intention</a> 提醒我注意意图如何进入系统，以及 Following 和 Exploring 的边界。他文中的 Exploring 特指提供等待接受的选项；我这里想尝试的，还包括在提前授权的范围内直接做实验。这两种含义需要分开。</p>
+<p>对我来说，一个值得尝试的界面，应该能把“当前要回答的问题”“已经有的证据”“下一步为什么值得做”放在一起。这样，我不必先翻完大量过程信息，才能判断研究在往哪里走。</p>
+<h2>第二个 Agent 应该做什么</h2>
+<p>我仍然觉得第二种视角可能有用。不过，比起让另一个助手不断给下一条指令，我更想尝试让它审查关键结论。</p>
+<p>例如：这个结果有没有支持我们想说的话？是否遗漏了一个竞争解释？某个中间指标是不是被当成了最终目标？</p>
+<p>两个 Agent 说法一致，也可能只是因为读了同一份不完整摘要。我的判断是，第二个 Agent 的价值需要来自它实际检查了什么，而不能仅仅来自“多了一个 Agent”。这仍是一个待验证的看法。</p>
+<h2>我准备怎样试</h2>
+<p>我的资源限制很具体：四张 80GB GPU，单次分配约 32 小时。因此，我想先选一个范围小、能恢复运行、也有明确结束条件的任务，比较两种工作方式。</p>
+<p>第一种是继续由我在两个助手之间传递进展。第二种是一次交代问题、预算和验收条件，让服务器上的 Agent 自主推进，再在重要决策处给出可检查的更新。</p>
+<p>我准备记录的，不只是做了多少事，还有我实际花了多少时间，以及最后有没有回答原来的问题。负结果也可以是答案。</p>
+<p>这项比较还没做完。如果自主推进没有减少我的负担，或者只是把负担推迟到了最后检查，我就需要承认这次尝试没有达到目的。如果我介入反而打断了有效探索，也应该把它记录下来。</p>
+<div class="thesis">我想交出去的不只是敲代码的工作，还包括一部分研究判断。接下来要弄清楚的是：交出去以后，我怎样知道问题正在被回答？</div>
+<p>我还没有一个成熟的答案。这个问题来自我真实的使用经历，也会继续影响我怎样做研究、怎样使用 Agent。</p>
+</section>
+<section id="connect"><h2>关于我与交流</h2><p>我是卞耀亮（Jeff），目前在西湖大学与深圳河套学院联合培养博士项目中，研究兴趣是具身智能、多模态模型和科研 Agent。</p><p>如果你也在让 Agent 跑实验，或者尝试过减少人类中转，我尤其想听到具体经历：你交给它哪些判断？什么情况下会介入？有没有一次“不插手”反而更好？</p><p><a href="https://jeffyaoliang.github.io">个人主页</a> · <a href="mailto:bianyaoliang@westlake.edu.cn">bianyaoliang@westlake.edu.cn</a></p></section>
+<footer>Written with AI assistance, based on my conversations about using research agents. Chinese quotations retain the original wording; English quotations are translations. Hypothetical examples are illustrative. The proposed workflow comparison has not been completed.<br>写作说明：本文基于真实使用对话，由 AI 协助整理和起草。假设例子用于说明问题；文中提出的工作方式比较尚未完成。</footer>
+</main></body></html>
