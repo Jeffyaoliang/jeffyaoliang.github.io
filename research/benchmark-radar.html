@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benchmark Radar | 卞耀亮 Yaoliang Bian</title>
+<meta name="description" content="Yaoliang Bian (卞耀亮): Benchmark Radar co-authored arXiv preprint and verified open-source contributions to benchmark discovery and evidence quality.">
+<link rel="canonical" href="https://jeffyaoliang.github.io/research/benchmark-radar.html">
+<meta property="og:type" content="article"><meta property="og:title" content="Benchmark Radar | Yaoliang Bian"><meta property="og:url" content="https://jeffyaoliang.github.io/research/benchmark-radar.html">
+<meta name="citation_title" content="Benchmark Radar: A Living Database and Search Engine for AI Benchmarks and Evaluation">
+<meta name="citation_author" content="Koutian Wu">
+<meta name="citation_author" content="Wenjun Zhang">
+<meta name="citation_author" content="Junjie Zhou">
+<meta name="citation_author" content="Pengqian Han">
+<meta name="citation_author" content="Qiming Bao">
+<meta name="citation_author" content="Ergan Shang">
+<meta name="citation_author" content="Jiayu Wang">
+<meta name="citation_author" content="Junkai Wang">
+<meta name="citation_author" content="Wanghan Xu">
+<meta name="citation_author" content="Songyuanyi Lu">
+<meta name="citation_author" content="Yixuan Li">
+<meta name="citation_author" content="Rudy Mizrahi Celekli">
+<meta name="citation_author" content="Lazizbek Ravshanov">
+<meta name="citation_author" content="Yaoliang Bian">
+<meta name="citation_author" content="Xudong Han">
+<meta name="citation_author" content="Lin Shi">
+<meta name="citation_publication_date" content="2026/09/10">
+<meta name="citation_arxiv_id" content="2609.11115">
+<meta name="citation_pdf_url" content="https://arxiv.org/pdf/2609.11115">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "@id": "https://jeffyaoliang.github.io/research/benchmark-radar.html#paper",
+  "headline": "Benchmark Radar: A Living Database and Search Engine for AI Benchmarks and Evaluation",
+  "name": "Benchmark Radar: A Living Database and Search Engine for AI Benchmarks and Evaluation",
+  "url": "https://arxiv.org/abs/2609.11115",
+  "identifier": "arXiv:2609.11115",
+  "sameAs": "https://doi.org/10.48550/arXiv.2609.11115",
+  "datePublished": "2026-09-10",
+  "dateModified": "2026-10-27",
+  "version": "4",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Koutian Wu"
+    },
+    {
+      "@type": "Person",
+      "name": "Wenjun Zhang"
+    },
+    {
+      "@type": "Person",
+      "name": "Junjie Zhou"
+    },
+    {
+      "@type": "Person",
+      "name": "Pengqian Han"
+    },
+    {
+      "@type": "Person",
+      "name": "Qiming Bao"
+    },
+    {
+      "@type": "Person",
+      "name": "Ergan Shang"
+    },
+    {
+      "@type": "Person",
+      "name": "Jiayu Wang"
+    },
+    {
+      "@type": "Person",
+      "name": "Junkai Wang"
+    },
+    {
+      "@type": "Person",
+      "name": "Wanghan Xu"
+    },
+    {
+      "@type": "Person",
+      "name": "Songyuanyi Lu"
+    },
+    {
+      "@type": "Person",
+      "name": "Yixuan Li"
+    },
+    {
+      "@type": "Person",
+      "name": "Rudy Mizrahi Celekli"
+    },
+    {
+      "@type": "Person",
+      "name": "Lazizbek Ravshanov"
+    },
+    {
+      "@type": "Person",
+      "name": "Yaoliang Bian",
+      "@id": "https://jeffyaoliang.github.io/#person",
+      "url": "https://jeffyaoliang.github.io/"
+    },
+    {
+      "@type": "Person",
+      "name": "Xudong Han"
+    },
+    {
+      "@type": "Person",
+      "name": "Lin Shi"
+    }
+  ],
+  "description": "A living database and search engine connecting AI benchmark discovery, task materials, reported scores, and source evidence."
+}</script>
+<style>body{max-width:880px;margin:48px auto;padding:0 24px;font:17px/1.7 Georgia,serif;color:#243247}a{color:#245d9b}h1{font-size:32px;line-height:1.25}h2{margin-top:36px;border-bottom:1px solid #d7dfea;padding-bottom:8px}nav,.meta{font:15px/1.7 system-ui,sans-serif}blockquote{margin:24px 0;padding:12px 20px;background:#f4f7fb;border-left:3px solid #245d9b}footer{margin-top:48px;font-size:14px;color:#555}</style>
+</head><body>
+<nav><a href="../">← Yaoliang Bian / 卞耀亮</a></nav>
+<h1>Benchmark Radar: A Living Database and Search Engine for AI Benchmarks and Evaluation</h1>
+<p>Koutian Wu, Wenjun Zhang, Junjie Zhou, Pengqian Han, Qiming Bao, Ergan Shang, Jiayu Wang, Junkai Wang, Wanghan Xu, Songyuanyi Lu, Yixuan Li, Rudy Mizrahi Celekli, Lazizbek Ravshanov, <strong>Yaoliang Bian</strong>, Xudong Han, Lin Shi</p>
+<p class="meta">arXiv preprint · 2026 · v4 updated October 27, 2026</p>
+<p><a href="https://arxiv.org/abs/2609.11115">Read on arXiv</a> · <a href="https://arxiv.org/pdf/2609.11115">PDF</a> · <a href="https://benchmark-radar.org/">Dashboard</a> · <a href="https://github.com/ktwu01/benchmark-radar">Code</a></p>
+<h2>Overview / 项目简介</h2>
+<p>Benchmark Radar is a living database and search engine for AI benchmarks and evaluation. It connects benchmark discovery with datasets, code, reported scores, and source evidence.</p>
+<p>My merged open-source contributions include an agent-benchmark digest connector, preservation of source evidence across paper revisions, recovery of cited benchmark release dates, and fixes that distinguish unreported adoption counters from measured zero.</p>
+<p lang="zh-CN">Benchmark Radar 是持续更新的 AI 评测基准数据库与搜索引擎。我参与了智能体评测信息源接入、论文修订时的证据保留、基准发布日期补全，以及缺失使用量指标的处理。</p>
+<p><a href="https://github.com/ktwu01/benchmark-radar/pull/632">Digest connector #632</a> · <a href="https://github.com/ktwu01/benchmark-radar/pull/840">Evidence preservation #840</a> · <a href="https://github.com/ktwu01/benchmark-radar/pull/834">Release dates #834</a> · <a href="https://github.com/ktwu01/benchmark-radar/pull/831">Missing metrics #831</a></p>
+<h2>My role / 我的参与</h2>
+<p>I am a co-author of the arXiv technical report (listed in v4) and an open-source contributor to Benchmark Radar. The linked merged pull requests document my software contributions. The report's frozen research data and the continuously updated live catalog have different cutoffs; consult each source for its scope.</p>
+<p lang="zh-CN">我是该技术报告的共同作者（列于 arXiv v4 作者列表），也是项目的开源贡献者。上方已合并 PR 提供了具体贡献记录。报告采用冻结数据，在线目录持续更新，两者的数据范围需分别查看。</p>
+<h2 id="citation">Citation / 引用</h2>
+<blockquote>Koutian Wu, Wenjun Zhang, Junjie Zhou, Pengqian Han, Qiming Bao, Ergan Shang, Jiayu Wang, Junkai Wang, Wanghan Xu, Songyuanyi Lu, Yixuan Li, Rudy Mizrahi Celekli, Lazizbek Ravshanov, Yaoliang Bian, Xudong Han, Lin Shi (2026). <em>Benchmark Radar: A Living Database and Search Engine for AI Benchmarks and Evaluation</em>. arXiv:2609.11115. <a href="https://doi.org/10.48550/arXiv.2609.11115">doi:10.48550/arXiv.2609.11115</a>.</blockquote>
+<footer>Page maintained by <a href="../">Yaoliang Bian (卞耀亮)</a>. Updated October 29, 2026. Author list and publication details follow <a href="https://arxiv.org/abs/2609.11115v4">arXiv v4</a>.</footer>
+</body></html>
